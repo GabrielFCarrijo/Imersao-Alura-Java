@@ -1,3 +1,5 @@
+package aula1;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,15 +22,18 @@ public class RequisicaoTopFilmes {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
         String body = response.body();
-        System.out.println(body);
 
         //Extrair apenas os dados que interessam (titulo, poster, classificação)
-        JsonParse parser =  new JsonParse();
+        JsonParse parser = new JsonParse();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
-
+        System.out.println(listaDeFilmes.get(0));
         // Exibir e manipular os dados
-
+        for (Map<String, String> filme : listaDeFilmes) {
+            System.out.println("\u001b[4m" + filme.get("title") + "\u001b[0m");
+            System.out.println("\u001b[36m" + filme.get("image") + "\u001b[37m");
+            System.out.println("\u001b[33m" + filme.get("imDbRating") + "\u001b[37m");
+            System.out.println();
         }
+    }
 }
