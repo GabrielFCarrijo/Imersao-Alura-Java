@@ -27,7 +27,7 @@ public class RequisicaoTopFilmes {
         //Extrair apenas os dados que interessam (titulo, poster, classificação)
         JsonParse parser = new JsonParse();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
-        System.out.println(listaDeFilmes.get(0));
+
         // Exibir e manipular os dados
         for (Map<String, String> filme : listaDeFilmes) {
             System.out.println("\u001b[4m" + filme.get("title") + "\u001b[0m");
