@@ -8,11 +8,11 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // fazer uma conexão HTTP e buscar os top 250 filmes
-        // String url = "https://alura-filmes.herokuapp.com/conteudos";
-        // ExtratorDeConteudo extrator = new ExtratorDeConteudoDoIMDB();
+         String url = "http://localhost:8080/rankingLinguagens";
+         ExtratorDeConteudo extrator = new ExtratorDeConteudoIMDB();
 
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD-JamesWebbSpaceTelescope.json";
-        ExtratorDeConteudo extrator = new ExtratorDeConteudoNasa();
+        //String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD-JamesWebbSpaceTelescope.json";
+        //ExtratorDeConteudo extrator = new ExtratorDeConteudoNasa();
 
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
